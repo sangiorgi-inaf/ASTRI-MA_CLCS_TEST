@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="990.0" prefWidth="1920.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.inaf.iasfpa.astri.camera.pdm.gui.PDMGuiController">
+	<children>
+		<VBox layoutX="10.0" layoutY="48.0" prefHeight="1071.0" prefWidth="354.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+			<children>
+				<Label text="FPGA Configuration Table">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator />
+				<GridPane hgap="3.0" vgap="3.0">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Label text="PDM ID" />
+						<CheckBox fx:id="hk_enCheck" mnemonicParsing="false" text="HK data enable" GridPane.rowIndex="1" />
+						<TextField fx:id="pdmIdFpgaText" text="37" GridPane.columnIndex="1" />
+						<CheckBox fx:id="verify_asicCheck" mnemonicParsing="false" text="Verify ASIC table" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<CheckBox fx:id="stand_aloneCheck" mnemonicParsing="false" text="stand alone" GridPane.rowIndex="2" />
+						<CheckBox fx:id="rstb_pscCheck" mnemonicParsing="false" text="rstb_PSC_1-2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<CheckBox fx:id="ps_globalCheck" mnemonicParsing="false" text="PS_global_trig_1-2" GridPane.rowIndex="3" />
+						<CheckBox fx:id="raz_pCheck" mnemonicParsing="false" text="Raz_p_1-2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+						<CheckBox fx:id="val_evtCheck" mnemonicParsing="false" text="Val_Evt_p_1-2" GridPane.rowIndex="4" />
+						<CheckBox fx:id="reset_paCheck" mnemonicParsing="false" text="RESET_PA" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+						<Label text="majority_in" GridPane.rowIndex="6" />
+						<CheckBox fx:id="filter_outCheck" mnemonicParsing="false" text="filter_out_en" GridPane.rowIndex="5" />
+						<Label text="time window" GridPane.rowIndex="7" />
+						<CheckBox fx:id="acq_holdCheck" mnemonicParsing="false" text="acq_hold_en" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<Label text="acq_valid_cycles" GridPane.rowIndex="8" />
+						<Label text="acq_mux_cycles" GridPane.rowIndex="9" />
+						<Label text="acq_conv_cycles" GridPane.rowIndex="10" />
+						<Label text="var_delay_cycles" GridPane.rowIndex="11" />
+						<TextField fx:id="acq_validText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+						<TextField fx:id="acq_muxText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+						<TextField fx:id="acq_convText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+						<TextField fx:id="var_delayText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+						<TextField fx:id="majorityText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+						<TextField fx:id="acq_cyclesText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+						<TextField fx:id="data_offsText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+						<Label text="acq_cycles" GridPane.rowIndex="12" />
+						<Label text="data_offs" GridPane.rowIndex="13" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+            						<TextField fx:id="timeWndText" text="0" />
+                        <TextField fx:id="timeWndCalcText" editable="false" />
+                     </children>
+                  </HBox>
+					</children>
+				</GridPane>
+				<Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Trigger Mask:" />
+				<GridPane fx:id="triggerMaskGrid" hgap="2.0" vgap="2.0">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<padding>
+						<Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+					</padding>
+				</GridPane>
+				<HBox alignment="CENTER" spacing="5.0">
+					<children>
+						<Button mnemonicParsing="false" onAction="#allPxlOn" text="all ON" />
+						<Button mnemonicParsing="false" onAction="#allPxlOff" text="all OFF" />
+					</children>
+				</HBox>
+				<Separator prefWidth="200.0" />
+				<HBox spacing="5.0">
+					<children>
+						<Button mnemonicParsing="false" onAction="#createFpgaTable" text="Create" />
+						<Button mnemonicParsing="false" onAction="#saveFpgaTable" text="Save" />
+						<Button mnemonicParsing="false" onAction="#openFpgaTable" text="Open" />
+					</children>
+				</HBox>
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+		<VBox layoutX="359.0" layoutY="50.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="359.0" AnchorPane.topAnchor="50.0">
+			<children>
+				<Label text="Asic Tables">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator />
+				<TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+					<tabs>
+						<Tab text="ASIC Configuration Table">
+							<content>
+								<AnchorPane maxHeight="1.7976931348623157E308">
+									<children>
+										<VBox layoutX="-110.0" layoutY="-271.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<children>
+												<GridPane hgap="3.0" vgap="3.0">
+													<columnConstraints>
+														<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+														<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<CheckBox fx:id="pdCheck" mnemonicParsing="false" text="Peak Detector" GridPane.rowIndex="1" />
+														<Label text="Shaping Time (LG &amp; HG)" GridPane.rowIndex="3" />
+														<Label text="Threshold" GridPane.rowIndex="4" />
+														<TextField fx:id="thresholdText" maxWidth="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+														<CheckBox fx:id="shaperCheck" mnemonicParsing="false" text="Slow Shaper (LG &amp; HG)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+														<ComboBox fx:id="shapingCombo" maxWidth="100.0" prefWidth="100.0" value="37.5 ns" GridPane.columnIndex="1" GridPane.rowIndex="3">
+															<items>
+																<FXCollections fx:factory="observableArrayList">
+																	<String fx:value="87.5 ns" />
+																	<String fx:value="75 ns" />
+																	<String fx:value="62.5 ns" />
+																	<String fx:value="50 ns" />
+																	<String fx:value="37.5 ns" />
+																	<String fx:value="25 ns" />
+																	<String fx:value="12.5 ns" />
+																</FXCollections>
+															</items>
+														</ComboBox>
+                                          <CheckBox fx:id="lgPreampCheck" mnemonicParsing="false" text="LG PreAmp Out" GridPane.rowIndex="2" />
+													</children>
+												</GridPane>
+												<Label text="DAC Input Gain:" />
+												<GridPane fx:id="dacInputGrid" hgap="3.0" maxHeight="1.7976931348623157E308" vgap="3.0">
+													<columnConstraints>
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+													</rowConstraints>
+												</GridPane>
+												<Separator />
+												<HBox alignment="CENTER_LEFT" spacing="5.0">
+													<children>
+														<Button mnemonicParsing="false" onAction="#createAsicTable" text="Create" />
+														<Button mnemonicParsing="false" onAction="#saveAsicTable" text="Save" />
+														<Button mnemonicParsing="false" onAction="#openAsicTable" text="Open" />
+													</children>
+												</HBox>
+											</children>
+											<padding>
+												<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+											</padding>
+										</VBox>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab text="Asic Probe Out Table">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+									<children>
+										<VBox layoutX="192.0" layoutY="148.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<padding>
+												<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+											</padding>
+											<children>
+												<HBox alignment="CENTER_LEFT" spacing="5.0" />
+												<HBox alignment="CENTER_LEFT" spacing="5.0" />
+												<GridPane hgap="3.0" vgap="3.0">
+													<columnConstraints>
+														<ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="60.0" />
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+														<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+														<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<Label text="Channel [0..63]" GridPane.columnIndex="2" />
+														<TextField fx:id="probeAnChText" maxWidth="-Infinity" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+														<TextField fx:id="probeDigChText" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+														<ComboBox fx:id="probeAnModCombo" maxWidth="1.7976931348623157E308" value="Out_fs" GridPane.columnIndex="1" GridPane.rowIndex="1">
+															<items>
+																<FXCollections fx:factory="observableArrayList">
+																	<String fx:value="Out_fs" />
+																	<String fx:value="Out_ssh_LG" />
+																	<String fx:value="Out_ssh_HG" />
+																	<String fx:value="Out_PA_LG" />
+																	<String fx:value="Out_PA_HG" />
+																</FXCollections>
+															</items>
+														</ComboBox>
+														<ComboBox fx:id="probeDigModCombo" maxWidth="1.7976931348623157E308" value="PeakSensing_modeb_LG" GridPane.columnIndex="1" GridPane.rowIndex="2">
+															<items>
+																<FXCollections fx:factory="observableArrayList">
+																	<String fx:value="PeakSensing_modeb_LG" />
+																	<String fx:value="PeakSensing_modeb_HG" />
+																</FXCollections>
+															</items>
+														</ComboBox>
+														<Label text="Analog" GridPane.rowIndex="1" />
+														<Label text="Digital" GridPane.rowIndex="2" />
+														<Label text="Module" GridPane.columnIndex="1" />
+													</children>
+												</GridPane>
+												<Separator />
+												<HBox alignment="CENTER_LEFT" spacing="5.0">
+													<children>
+														<Button mnemonicParsing="false" onAction="#createProbeTable" text="Create" />
+														<Button mnemonicParsing="false" onAction="#saveProbeTable" text="Save" />
+														<Button mnemonicParsing="false" onAction="#openProbeTable" text="Open" />
+													</children>
+												</HBox>
+											</children>
+										</VBox>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+					</tabs>
+				</TabPane>
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+		<HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="1834.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<children>
+				<Label text="COM PORT" />
+				<ComboBox fx:id="comCombo" prefWidth="150.0" />
+				<Button mnemonicParsing="false" onAction="#connect" text="Connect" />
+            <Button mnemonicParsing="false" onAction="#disconnect" text="Disconnect" />
+				<Button mnemonicParsing="false" onAction="#scanPort" text="Scan" />
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</HBox>
+		<VBox layoutX="1137.0" layoutY="50.0" prefWidth="770.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.leftAnchor="1132.0" AnchorPane.topAnchor="50.0">
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+			<children>
+				<Label text="PDM Commands">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator prefWidth="200.0" />
+				<GridPane hgap="3.0" vgap="3.0">
+					<columnConstraints>
+						<ColumnConstraints hgrow="ALWAYS" />
+						<ColumnConstraints hgrow="SOMETIMES" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Button mnemonicParsing="false" onAction="#init" text="PDM INIT" GridPane.columnIndex="1" />
+						<Button mnemonicParsing="false" onAction="#loadTable" text="LOAD TABLE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+						<Button mnemonicParsing="false" onAction="#resetModule" text="RESET MODULE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<Button mnemonicParsing="false" onAction="#requestData" text="REQUEST DATA" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<ComboBox fx:id="moduleResetCombo" maxWidth="1.7976931348623157E308" value="acquire_ctrl" GridPane.hgrow="NEVER" GridPane.rowIndex="2">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="acquire_ctrl" />
+									<String fx:value="variance_ctrl" />
+									<String fx:value="trig_count" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+						<ComboBox fx:id="tableCombo" maxWidth="1.7976931348623157E308" value="FPGA Table" GridPane.hgrow="NEVER" GridPane.rowIndex="3">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="FPGA Table" />
+									<String fx:value="ASIC Table" />
+									<String fx:value="ASIC Probe Table" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+						<ComboBox fx:id="moduleRequestCombo" maxWidth="1.7976931348623157E308" value="acquire_ctrl" GridPane.hgrow="NEVER" GridPane.rowIndex="5">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="acquire_ctrl" />
+									<String fx:value="variance_ctrl" />
+									<String fx:value="trig_count" />
+									<String fx:value="hk" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+						<HBox prefWidth="150.0" spacing="3.0" GridPane.hgrow="NEVER">
+							<children>
+								<TextField editable="false" text="0" />
+								<TextField fx:id="pdmIdText" text="1" />
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+							<children>
+								<Button mnemonicParsing="false" onAction="#sendTable" text="SEND TABLE" />
+								<Button mnemonicParsing="false" onAction="#writeTable" text="WRITE TABLE" />
+								<Button mnemonicParsing="false" onAction="#execTable" text="EXEC TABLE" />
+								<Button mnemonicParsing="false" onAction="#requestTable" text="REQUEST TABLE" />
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" prefWidth="200.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+							<children>
+								<Button mnemonicParsing="false" onAction="#setSwitch" text="SET SWITCH" />
+								<Button mnemonicParsing="false" onAction="#startCount" text="START COUNT" />
+							</children>
+						</HBox>
+						<ComboBox fx:id="tableLoadCombo" maxWidth="1.7976931348623157E308" value="ASIC Table" GridPane.hgrow="NEVER" GridPane.rowIndex="4">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="ASIC Table" />
+									<String fx:value="ASIC Probe Table" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+						<Button mnemonicParsing="false" onAction="#clockSelect" text="CLOCK SELECT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<ComboBox fx:id="clkCombo" maxWidth="1.7976931348623157E308" value="Internal" GridPane.rowIndex="1">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="Internal" />
+									<String fx:value="External" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+					</children>
+				</GridPane>
+				<HBox spacing="5.0" />
+			</children>
+		</VBox>
+		<VBox layoutX="860.0" layoutY="50.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="50.0">
+			<children>
+				<Label text="Switch Table">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator prefWidth="200.0" />
+				<GridPane hgap="3.0" vgap="3.0">
+					<children>
+						<CheckBox fx:id="acq_enCheck" mnemonicParsing="false" text="acq_en" />
+						<CheckBox fx:id="acq_var_enCheck" mnemonicParsing="false" text="acq_var_en" GridPane.columnIndex="1" />
+						<CheckBox fx:id="acq_enableCheck" mnemonicParsing="false" text="acq_enable" GridPane.rowIndex="1" />
+						<CheckBox fx:id="acq_clearCheck" mnemonicParsing="false" text="acq_clear" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<ComboBox fx:id="trig_selCombo" value="disable" GridPane.columnIndex="1" GridPane.rowIndex="2">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="disable" />
+									<String fx:value="nor32" />
+									<String fx:value="trig_gen" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+						<Label text="trig_sel" GridPane.rowIndex="2" />
+						<Label text="wind_mon" GridPane.rowIndex="3" />
+						<ComboBox fx:id="wind_monCombo" maxWidth="1.7976931348623157E308" value="0 ns" GridPane.columnIndex="1" GridPane.rowIndex="3">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="0.0 ns" />
+									<String fx:value="3.3 ns" />
+									<String fx:value="6.6 ns" />
+									<String fx:value="9.9 ns" />
+									<String fx:value="13.2 ns" />
+									<String fx:value="16.5 ns" />
+									<String fx:value="19.8 ns" />
+									<String fx:value="23.1 ns" />
+									<String fx:value="26.4 ns" />
+									<String fx:value="29.7 ns" />
+									<String fx:value="33.0 ns" />
+									<String fx:value="36.3 ns" />
+									<String fx:value="39.6 ns" />
+									<String fx:value="42.9 ns" />
+									<String fx:value="46.2 ns" />
+									<String fx:value="49.5 ns" />
+								</FXCollections>
+							</items>
+						</ComboBox>
+					</children>
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+				</GridPane>
+				<Separator prefWidth="200.0" />
+				<HBox spacing="5.0">
+					<children>
+						<Button mnemonicParsing="false" onAction="#createSwitchTable" text="Create" />
+						<Button mnemonicParsing="false" onAction="#saveSwitchTable" text="Save" />
+						<Button mnemonicParsing="false" onAction="#openSwitchTable" text="Open" />
+					</children>
+				</HBox>
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+		<VBox layoutX="905.0" layoutY="338.0" prefHeight="77.0" prefWidth="800.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="335.0">
+			<children>
+				<Label text="Operating Modes">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator prefWidth="200.0" />
+				<HBox alignment="CENTER_LEFT" spacing="5.0">
+					<children>
+                  <Label text="Stairs (C11 - C12)">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+						<Label text="Threshold Start:" />
+                  <TextField fx:id="startThreshText" prefWidth="100.0" text="187" />
+						<Label text="Threshold End:" />
+                  <TextField fx:id="stopThreshText" prefWidth="100.0" text="220" />
+						<Label text="Delta Threshold:" />
+                  <TextField fx:id="deltaThreshText" prefWidth="100.0" text="1" />
+						<Button mnemonicParsing="false" onAction="#perform_C11_C12" text="Start" />
+					</children>
+				</HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label text="Distributions (C13 - C14)">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Threshold:" />
+                  <TextField fx:id="c13_14ThreshText" prefWidth="100.0" text="200" />
+                  <Label text="Iterations:" />
+                  <TextField fx:id="c13_14IterText" prefWidth="100.0" text="1000" />
+                  <Button mnemonicParsing="false" onAction="#start_C13_C14" text="Start" />
+                  <Button mnemonicParsing="false" onAction="#stop_C13_C14" text="Stop" />
+               </children>
+            </HBox>
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+		<VBox layoutX="915.0" layoutY="457.0" prefHeight="528.0" prefWidth="1000.0" spacing="5.0" styleClass="bordered-pane" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="455.0">
+			<children>
+				<Label text="Output">
+					<font>
+						<Font name="System Bold" size="15.0" />
+					</font>
+				</Label>
+				<Separator prefWidth="200.0" />
+				<TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+					<tabs>
+						<Tab text="Text">
+							<content>
+								<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+									<children>
+										<VBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<children>
+												<TextArea fx:id="outText" editable="false" VBox.vgrow="ALWAYS" />
+												<Button mnemonicParsing="false" onAction="#clearOutText" text="Clear" />
+											</children>
+											<padding>
+												<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+											</padding>
+										</VBox>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab text="Chart">
+							<content>
+								<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+									<children>
+										<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<children>
+												<LineChart fx:id="outChart" VBox.vgrow="ALWAYS">
+													<xAxis>
+														<CategoryAxis side="BOTTOM" />
+													</xAxis>
+													<yAxis>
+														<NumberAxis side="LEFT" />
+													</yAxis>
+												</LineChart>
+												<Button mnemonicParsing="false" onAction="#clearOutChart" text="Clear" />
+											</children>
+										</VBox>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+					</tabs>
+				</TabPane>
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+	</children>
+	<padding>
+		<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+	</padding>
+</AnchorPane>

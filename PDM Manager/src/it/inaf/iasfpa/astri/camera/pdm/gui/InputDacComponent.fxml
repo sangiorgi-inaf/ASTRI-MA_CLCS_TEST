@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" spacing="3.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.inaf.iasfpa.astri.camera.pdm.gui.InputDacComponentController">
+   <children>
+      <Label fx:id="chLabel" text="Ch xx" />
+      <TextField fx:id="valueText" prefWidth="50.0" />
+      <CheckBox fx:id="enableCheck" mnemonicParsing="false" />
+   </children>
+   <padding>
+      <Insets bottom="3.0" left="3.0" top="3.0" />
+   </padding>
+</HBox>
