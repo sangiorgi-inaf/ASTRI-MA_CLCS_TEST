@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.inaf.iasfpa.astri.camera.launcher.LauncherGuiController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.inaf.iasfpa.astri.camera.launcher.LauncherGuiController">
    <children>
       <VBox spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -24,9 +25,10 @@
             </Label>
             <HBox spacing="10.0">
                <children>
-                  <ComboBox prefWidth="400.0" />
-                  <Button mnemonicParsing="false" onAction="#startServer" text="START" />
-                  <Button mnemonicParsing="false" onAction="#stopServer" text="STOP" />
+                  <ComboBox fx:id="serverNameComboBox" onAction="#comboServerChangeEvent" prefWidth="400.0" />
+                  <Button fx:id="startServerButton" mnemonicParsing="false" onAction="#startServer" text="START" />
+                  <Button fx:id="stopServerButton" mnemonicParsing="false" onAction="#stopServer" text="STOP" />
+                  <CheckBox fx:id="aClientCheckBox" mnemonicParsing="false" text="Autostart Client" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -37,8 +39,8 @@
             </Label>
             <HBox spacing="10.0">
                <children>
-                  <ComboBox prefWidth="400.0" />
-                  <Button mnemonicParsing="false" onAction="#startClient" text="START" />
+                  <ComboBox fx:id="clientNameComboBox" onAction="#comboClientChangeEvent" prefWidth="400.0" />
+                  <Button fx:id="startClientButton" mnemonicParsing="false" onAction="#startClient" text="START" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
