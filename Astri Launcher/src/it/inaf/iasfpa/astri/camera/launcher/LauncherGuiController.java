@@ -86,7 +86,9 @@ public class LauncherGuiController implements Initializable {
 		}
 		this.serverNameComboBox.setItems(serverNameList);
 		this.clientNameComboBox.setItems(clientNameList);
-
+		this.serverNameComboBox.getSelectionModel().select(0);
+		this.clientNameComboBox.getSelectionModel().select(0);
+		
 		aClientCheckBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -119,7 +121,7 @@ public class LauncherGuiController implements Initializable {
 				}
 				String controlCmd = "ps aux|grep java";
 				sshExServer.executeCommand(controlCmd, null);
-				int c = serverShellText.getText().indexOf("astri_camera_control_server");
+				int c = serverShellText.getText().indexOf(LauncherProperty.SERVER_JAVA_PROCESS_NAME);
 				if (c > 0) {
 					Platform.runLater(new Runnable() {
 
@@ -139,7 +141,7 @@ public class LauncherGuiController implements Initializable {
 					startClientButton.setDisable(false);
 
 				} else {
-					String cmd = "cd /opt/Astri_Camera_Sim; bash -c \"exec -a astri_camera_control_server_sh ./start_bee_server.sh\"";
+					String cmd = "cd "+ serverDirPath + "; bash -c \"exec -a " + LauncherProperty.SERVER_JAVA_PROCESS_NAME + " " + LauncherProperty.SERVER_LAUNCH_SHELL_FILE +"\"";
 					String exitCondition = "- Enter x to close the server";
 					try {
 						stopServerButton.setDisable(false);
@@ -180,7 +182,7 @@ public class LauncherGuiController implements Initializable {
 				clientShellText.clear();
 				String controlCmd = "ps aux|grep java";
 				sshExClient.executeCommand(controlCmd, null);
-				int c = clientShellText.getText().indexOf("astri_camera_control_client");
+				int c = clientShellText.getText().indexOf(LauncherProperty.CLIENT_JAVA_PROCESS_NAME);
 				if (c > 0) {
 					Platform.runLater(new Runnable() {
 
@@ -200,8 +202,8 @@ public class LauncherGuiController implements Initializable {
 						sshExServer.connect(currentServer.getIpAddress(), 22, currentServer.getUsr(), currentServer.getPwd());
 						serverConnected = true;
 					}
-					String cmd1 = "pkill -9 -f astri_camera_control_server_sh";
-					String cmd2 = "pkill -9 -f astri_camera_control_server";
+					String cmd1 = "pkill -9 -f " + LauncherProperty.SERVER_SHELL_PROCESS_NAME;
+					String cmd2 = "pkill -9 -f " + LauncherProperty.SERVER_JAVA_PROCESS_NAME;
 					try {
 
 						sshExServer.executeCommand(cmd1, null);

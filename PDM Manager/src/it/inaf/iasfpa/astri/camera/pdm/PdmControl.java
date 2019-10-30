@@ -55,23 +55,24 @@ public class PdmControl {
 		
 		System.out.println("REQUEST: " + PrintUtils.byteArrayToHexString(msg));
 		
-		int msgSize = msg.length;
-		if ((waitTime > 0) && (msgSize > 16)) { //FRAMMENTAZIONE
-			int intero = msgSize / 16;
-			int resto = msgSize % 16;
-			int last = 0;
-			if (resto == 0)
-				last = intero-1;
-			else
-				last = intero;
-			for (int i = 0; i < last; i++) {
-				sph.transmit(Arrays.copyOfRange(msg, 16*i, 16*(i+1)));
-				Thread.sleep(waitTime);
-			}
-			response = sph.transmitAndReceive(Arrays.copyOfRange(msg, 16*last, msgSize), responseTimeout, fixed_resp_size, (byte) 0x0D);
-		} else {
+//		int msgSize = msg.length;
+//		if ((waitTime > 0) && (msgSize > 16)) { //FRAMMENTAZIONE
+//		if (msgSize > 16) {
+//			int intero = msgSize / 16;
+//			int resto = msgSize % 16;
+//			int last = 0;
+//			if (resto == 0)
+//				last = intero-1;
+//			else
+//				last = intero;
+//			for (int i = 0; i < last; i++) {
+//				sph.transmit(Arrays.copyOfRange(msg, 16*i, 16*(i+1)));
+//				Thread.sleep(1);
+//			}
+//			response = sph.transmitAndReceive(Arrays.copyOfRange(msg, 16*last, msgSize), responseTimeout, fixed_resp_size, (byte) 0x0D);
+//		} else {
 			response = sph.transmitAndReceive(msg, responseTimeout, fixed_resp_size, (byte) 0x0D);
-		}
+//		}
 		
 		System.out.println("RESPONSE RAW: " + PrintUtils.byteArrayToHexString(response));
 		

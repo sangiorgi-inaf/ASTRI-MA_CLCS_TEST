@@ -1,18 +1,40 @@
 {
   "server": [
-    {
-      "name": "iasfpa",
-      "ipAddress": "10.10.2.164",
+      {
+      "name": "TEST",
+      "ipAddress": "192.168.100.164",
       "usr": "root",
-      "pwd": "none"
+      "pwd": "none",
+      "dir_path": "/opt/Astri_Camera_Sim"
     },
     {
-      "name": "iasfpa2",
-      "ipAddress": "10.10.2.164",
+      "name": "CAMERA SLN - ASTRI CAMERA TEST",
+      "ipAddress": "192.168.100.142",
       "usr": "root",
-      "pwd": "none"
+      "pwd": "none",
+      "dir_path": ""
+    },
+    {
+      "name": "CAMERA LAB PA - ASTRI CAMERA TEST",
+      "ipAddress": "10.10.2.163",
+      "usr": "root",
+      "pwd": "none",
+      "dir_path": ""
+    },
+    {
+      "name": "CAMERA SLN - ASTRI CAMERA TEST",
+      "ipAddress": "192.168.100.142",
+      "usr": "root",
+      "pwd": "none",
+      "dir_path": ""
+    },
+    {
+      "name": "CAMERA LAB PA - ASTRI CAMERA TEST",
+      "ipAddress": "10.10.2.163",
+      "usr": "root",
+      "pwd": "none",
+      "dir_path": ""
     }
-    
     
   ],
   "client": [
@@ -20,13 +42,15 @@
       "name": "iasfpa",
       "ipAddress": "10.10.2.164",
       "usr": "root",
-      "pwd": "none"
+      "pwd": "none",
+      "dir_path": "/opt/ASTRI_Camera_Test/client/"
     },
     {
       "name": "iasfpa2",
       "ipAddress": "10.10.2.164",
       "usr": "root",
-      "pwd": "none"
+      "pwd": "none",
+      "dir_path": ""
     }
   ]
 }

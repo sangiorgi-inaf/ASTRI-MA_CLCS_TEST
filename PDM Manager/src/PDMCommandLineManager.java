@@ -10,16 +10,13 @@ import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.concurrent.Executors;
@@ -35,11 +32,7 @@ import it.inaf.iasfpa.astri.camera.pdm.PdmUtils;
 import it.inaf.iasfpa.astri.camera.pdm.SwitchTableData;
 import it.inaf.iasfpa.astri.camera.pdm.data.HkData;
 import it.inaf.iasfpa.astri.camera.utils.PrintUtils;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Region;
+
 
 public class PDMCommandLineManager {
 
@@ -1039,8 +1032,7 @@ public class PDMCommandLineManager {
 										result = false;
 										flashResult &= result;
 									}
-									System.out.println(
-											"Send data to Sector " + sector + " - Page " + j + " result: " + result + "\n");
+									System.out.println("Send data to Sector " + sector + " - Page " + j + " result: " + result + "\n");
 								}
 							} else {								
 								System.out.println("FLASH FAILED!");
