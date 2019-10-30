@@ -81,14 +81,14 @@ public class LauncherGuiController implements Initializable {
 			serverNameList.add(serverList.get(i).getName());
 		}
 
-		for (int i = 0; i < serverList.size(); i++) {
+		for (int i = 0; i < clientList.size(); i++) {
 			clientNameList.add(clientList.get(i).getName());
 		}
 		this.serverNameComboBox.setItems(serverNameList);
 		this.clientNameComboBox.setItems(clientNameList);
-		this.serverNameComboBox.getSelectionModel().select(0);
-		this.clientNameComboBox.getSelectionModel().select(0);
-		
+//		this.serverNameComboBox.getSelectionModel().select(index);
+//		this.clientNameComboBox.getSelectionModel().select(0);
+//		
 		aClientCheckBox.selectedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -141,7 +141,8 @@ public class LauncherGuiController implements Initializable {
 					startClientButton.setDisable(false);
 
 				} else {
-					String cmd = "cd "+ serverDirPath + "; bash -c \"exec -a " + LauncherProperty.SERVER_JAVA_PROCESS_NAME + " " + LauncherProperty.SERVER_LAUNCH_SHELL_FILE +"\"";
+					String cmd = "cd "+ currentServer.getDir_path() + "; bash -c \"exec -a " + LauncherProperty.SERVER_SHELL_PROCESS_NAME + " " + LauncherProperty.SERVER_LAUNCH_SHELL_FILE +"\"";
+					
 					String exitCondition = "- Enter x to close the server";
 					try {
 						stopServerButton.setDisable(false);
@@ -155,6 +156,9 @@ public class LauncherGuiController implements Initializable {
 						e.printStackTrace();
 					}
 					
+				}
+				if(aClientCheckBox.isSelected()) {
+					startClient();
 				}
 				return null;
 			}
@@ -231,18 +235,66 @@ public class LauncherGuiController implements Initializable {
 
 	@FXML
 	private void startClient() {
-		if(!clientConnected) {
-			sshExClient.connect(currentClient.getIpAddress(), 22, currentClient.getUsr(), currentClient.getPwd());
-			clientConnected = true;
-			String controlCmd = "command";
-			sshExClient.executeCommand(controlCmd, null);
-		}
+		
+		serverShellText.clear();
+		Task<Void> taskStartClient = new Task<Void>() {
+
+			@Override
+			protected Void call() throws Exception {
+				if(!clientConnected) {
+					sshExClient.connect(currentClient.getIpAddress(), 22, currentClient.getUsr(), currentClient.getPwd());
+					clientConnected = true;
+				}
+				String controlCmd = "ps aux|grep java";
+				sshExClient.executeCommand(controlCmd, null);
+				int c = clientShellText.getText().indexOf(LauncherProperty.CLIENT_JAVA_PROCESS_NAME);
+				if (c > 0) {
+					Platform.runLater(new Runnable() {
+
+						@Override
+						public void run() {
+							Alert alert = new Alert(AlertType.INFORMATION);
+							alert.setTitle("Information Dialog");
+							alert.setHeaderText(null);
+							alert.setContentText("Client already starts");
+							alert.show();
+						}
+					});
+					sshExClient.disconnectChannel();
+//					sshEx.disconnectSession();
+					
+					startClientButton.setDisable(true);
+
+				} else {
+					String cmd = "cd "+ currentClient.getDir_path() + "; bash -c \"exec -a " + LauncherProperty.CLIENT_SHELL_PROCESS_NAME + " " + LauncherProperty.CLIENT_LAUNCH_SHELL_FILE +"\"";
+					
+					try {
+						
+						startClientButton.setDisable(true);
+						
+						sshExClient.executeCommand(cmd, null);
+//						sshEx.disconnectChannel();
+//						sshEx.disconnectSession();
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+				}
+				return null;
+			}
+
+		};
+
+		new Thread(taskStartClient).start();
+	
 		
 	}
 
 	@FXML
 	private void comboServerChangeEvent(ActionEvent event) {
 		currentServer = serverList.get(this.serverNameComboBox.getSelectionModel().getSelectedIndex());
+		System.out.println(this.serverNameComboBox.getSelectionModel().getSelectedIndex());
 
 	}
 

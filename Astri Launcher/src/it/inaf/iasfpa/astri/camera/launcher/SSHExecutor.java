@@ -147,7 +147,7 @@ public class SSHExecutor {
 				} catch (Exception ee) {
 				}
 			}
-//			System.out.println("error: " + errorBuffer.toString());
+			System.out.println("error: " + errorBuffer.toString());
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -6,7 +6,7 @@ public class ServerConfiguration {
 	private final String ipAddress;
 	private final String usr;
 	private final String pwd;
-	
+	private final String dir_path;
 	
 	public String getName() {
 		return name;
@@ -23,17 +23,23 @@ public class ServerConfiguration {
 	public String getPwd() {
 		return pwd;
 	}
+	
+	public String getDir_path() {
+		return dir_path;
+	}
 
 	
 
-	public ServerConfiguration(String name, String ipAddress, String usr, String pwd) {
+	public ServerConfiguration(String name, String ipAddress, String usr, String pwd, String dir_path) {
 		super();
 		this.name = name;
 		this.ipAddress = ipAddress;
 		this.usr = usr;
 		this.pwd = pwd;
-		
+		this.dir_path = dir_path;
 	}
+
+	
 
 	
 }
